@@ -83,7 +83,6 @@ class OntologyCleaner
         #clean_accents
       when 'ONTOMA'
         clean_underscore
-
     end
 
     return @literal

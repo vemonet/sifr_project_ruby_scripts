@@ -2,7 +2,7 @@
 
 require_relative 'ontology_cleaner.rb'
 
-input_dir = "../../ontology_files/ontology_files_to_clean/ICPCFRE.*"
+input_dir = "../../ontology_files/ontology_files_to_clean/*.*"
 output_dir = "../../ontology_files/ontology_files_cleaned/"
 
 
@@ -20,7 +20,7 @@ def clean_ontology(filepath, filename, fileformat, output_dir)
       if fileformat == "owl"
         regex_get_literal = line.scan(/<.* xml:lang="fr">(.*)<\/.*>/)
       elsif fileformat == "ttl"
-        regex_get_literal = line.scan(/skos:prefLabel """(.*)"""/)
+        regex_get_literal = line.scan(/(?:skos:prefLabel|skos:altLabel) """(.*?)"""/)
       end
 
       #"clean" the label (depending on which ontology it is from)
