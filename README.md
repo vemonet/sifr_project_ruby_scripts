@@ -1,5 +1,5 @@
 Ruby Scripts used for the SIFR project at LIRMM
-==============
+--------------
 
 Little Ruby scripts used for the SIFR project
 Auto download of ontologies, clean ontologies from unwanted character...
