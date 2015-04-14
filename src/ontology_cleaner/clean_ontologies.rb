@@ -2,11 +2,7 @@
 
 require_relative 'ontology_cleaner.rb'
 
-
-#input_dir = "C:/Users/Vincent/Documents/ruby_workspace/sifr_project_scripts/ontology_files/ontology_files_to_clean/*.*"
-#output_dir = 'C:/Users/Vincent/Documents/ruby_workspace/sifr_project_scripts/ontology_files/ontology_files_cleaned'
-
-input_dir = "../../ontology_files/ontology_files_to_clean/*.*"
+input_dir = "../../ontology_files/ontology_files_to_clean/ICPCFRE.*"
 output_dir = "../../ontology_files/ontology_files_cleaned/"
 
 

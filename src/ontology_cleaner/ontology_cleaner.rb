@@ -45,6 +45,7 @@ class OntologyCleaner
       when 'CCAM'
         clean_cismef
         clean_abbreviation
+        clean_ccam
       when 'CIF'
         clean_cismef
       when 'CIM-10'
@@ -70,6 +71,7 @@ class OntologyCleaner
         clean_accents
       when 'ICPCFRE'
         clean_abbreviation
+        clean_accents
       when 'MTHMSTFRE'
         clean_accents
       when 'WHOFRE'
@@ -117,20 +119,27 @@ class OntologyCleaner
   end
 
   def clean_abbreviation
+    #Replace abbreviations for some ontologies
     replace_hash = {
-        'ICPCFRE' => {},
+        'ICPCFRE' => {'syst' => 'système', 'chron' => 'chronique', 'probl' => 'problème', 'comport' => 'comportement', 'sympt' => 'symptome',
+                      'reperc' => 'répercussion', 'org' => 'organes', 'anomal' => 'anomalie', 'dig' => 'digestif'},
         'CCAM' => {'resp.' => 'respiratoire', 'exam.' => 'examen', 'prod.' => 'production', 'aig.' => 'aigue',
                    'insuf.' => 'insuffisance', 'ventil.' => 'ventilation'},
         'CIM-10' => {'<p>' => '', '<P>' => ''},
-        'CISP2' => {'resp.' => 'respiratoire', 'modific.' => 'modification', 'lymph.' => 'lymphatique'},
+        'CISP2' => {'resp.' => 'respiratoire', 'modific.' => 'modification', 'lymph.' => 'lymphatique', 'traumat.' => 'traumatique',
+                    'pulm.' => 'pulmonaire', 'comport.' => 'comportement'},
         'WHO-ART' => {'sensat ' => 'sensation ', 'synd ' => 'syndrôme ', 'sclerose' => 'sclérose', 'doul '=> 'douleur', 'erytheme' => 'érythème',
                       'tumefaction' => 'tuméfaction', 'necrose' => 'nécrose', 'anesthesie' => 'anesthésie', 'hemarthrose' => 'hémarthrose',
                       'sensibilite' => 'sensibilité', 'reaction' => 'réaction', 'endarterite' => 'endartérite', 'panarterite' => 'panartérite',
                       'arterite' => 'artérite'}
     }
     replace_hash[@ontology].each do |key, value|
-      @literal = @literal.gsub(key, value)
+      @literal = @literal.downcase.gsub(key, value).capitalize
     end
+  end
+
+  def clean_ccam
+    @literal = @literal.sub(/ [A-Z]{2}$/, '')
   end
 
 

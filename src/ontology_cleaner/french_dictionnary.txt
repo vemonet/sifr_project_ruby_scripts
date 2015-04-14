@@ -14581,6 +14581,7 @@ antidétonantes
 antidétonants
 antidiphtérique
 antidiphtériques
+antidiurétique
 antidopage
 antidopages
 antidoping
@@ -118326,6 +118327,7 @@ eczémas
 eczémateuse
 eczémateuses
 eczémateux
+eczématiforme
 édam
 édams
 edelweiss
@@ -129320,6 +129322,7 @@ encyclopédique
 encyclopédiques
 encyclopédiste
 encyclopédistes
+endartérite
 endauba
 endaubai
 endaubaient
@@ -164543,6 +164546,7 @@ genièvre
 genièvres
 gêniez
 gênions
+génique
 génisse
 génisses
 génital
@@ -173996,6 +174000,7 @@ hémorroïdales
 hémorroïdaux
 hémorroïde
 hémorroïdes
+hémospermie
 hémostase
 hémostases
 hémostatique
@@ -195619,6 +195624,7 @@ liché
 lichée
 lichées
 lichen
+lichénoïde
 lichens
 lichent
 licher
@@ -216577,6 +216583,7 @@ nécrologique
 nécrologiques
 nécrologue
 nécrologues
+nécrolyse
 nécromancie
 nécromancien
 nécromancienne
@@ -216602,6 +216609,7 @@ nécrosais
 nécrosait
 nécrosâmes
 nécrosant
+nécrosante
 nécrosas
 nécrosasse
 nécrosassent
@@ -217234,6 +217242,7 @@ névrite
 névrites
 névritique
 névritiques
+névrodermie
 névrodermite
 névrodermites
 névroglie
@@ -223781,6 +223790,7 @@ otorragie
 otorragies
 otorrhée
 otorrhées
+otosclérose
 otoscope
 otoscopes
 ottoman
@@ -226638,6 +226648,7 @@ panarde
 panardes
 panards
 panaris
+panartérite
 panas
 panasse
 panassent
@@ -242844,6 +242855,7 @@ pornographiques
 pornos
 porosité
 porosités
+porphobilinogène
 porphyre
 porphyres
 porphyrique
@@ -296305,6 +296317,7 @@ sidéré
 sidère
 sidérée
 sidérées
+sidérémie
 sidèrent
 sidérer
 sidérera
@@ -329944,6 +329957,7 @@ végétalisme
 végétalismes
 végétâmes
 végétant
+végétante
 végétarien
 végétarienne
 végétariennes
@@ -335609,6 +335623,7 @@ xérophile
 xérophiles
 xérophtalmie
 xérophtalmies
+xérose
 xérus
 xi
 ximénie
