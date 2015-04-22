@@ -29,10 +29,26 @@ def patch_ontology_admin(restURL, ontoAcronym)
 
 end
 
+def get_ncbo_ontologies_array
+  ontologies_json = JSON.parse(Net::HTTP.get(URI.parse('http://data.bioontology.org/ontologies?apikey=24e03810-54e0-11e0-9d7b-005056aa3316')))
+  puts ontologies_json.class
+
+  ontologies_array = []
+
+  ontologies_json.each do |onto|
+    ontologies_array.push(["#{onto['name']} (#{onto['acronym']})", onto['acronym']])
+  end
+  return ontologies_array
+end
+
+
+puts get_ncbo_ontologies_array
+
+=begin
 ontology_array = ['BHN', 'CIF', 'CCAM', 'CIM-10', 'CISP-2', 'LPP', 'MEDLINEPLUS', 'NABM', 'SNMIFRE', 'WHO-ARTFRE']
 
 ontology_array.each do |onto|
   puts onto
   puts patch_ontology_admin("http://bioportal.lirmm.fr:8082", onto)
 end
-
+=end
