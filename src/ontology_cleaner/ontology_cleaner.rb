@@ -14,6 +14,7 @@ class OntologyCleaner
   end
 
   def self.fill_dictionnary
+    #Fill the dictionnary with  words from a txt file : in key the word without accent and in value the word with accent
     dict_filepath = "french_dictionnary.txt"
     dict_file = File.read(dict_filepath, :encoding => 'utf-8')
     replace_hash = {'é' => 'e', 'è' => 'e', 'ê' => 'e', 'ë' => 'e',
@@ -78,9 +79,10 @@ class OntologyCleaner
         clean_caps_lock
         clean_accents
       when 'ONTOPNEUMO'
-        #clean_english_prefLabel
-        #clean_espace_dans_mots
-        #clean_accents
+        #clean_english_prefLabel => done using Java
+        #clean_espace_dans_mots => done using Java
+        clean_accents
+        clean_encoded_quot
       when 'ONTOMA'
         clean_underscore
     end
@@ -100,6 +102,10 @@ class OntologyCleaner
 
   def clean_caps_lock
     @literal = @literal.downcase
+  end
+
+  def clean_encoded_quot
+    @literal = @literal.gsub('&apos;', "'").gsub('&quot;', '"')
   end
 
   def clean_accents

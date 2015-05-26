@@ -4,7 +4,7 @@
 require 'json'
 require 'net/http'
 require_relative '../../config.rb'
-require './src/download/bio_portal_ontology'
+require_relative 'bio_portal_ontology.rb'
 
 # TODO: Change download path directories
 

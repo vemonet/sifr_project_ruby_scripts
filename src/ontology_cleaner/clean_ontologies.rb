@@ -2,8 +2,8 @@
 
 require_relative 'ontology_cleaner.rb'
 
-input_dir = "../../ontology_files/ontology_files_to_clean/ONTOMA.*"
-output_dir = "../../ontology_files/ontology_files_cleaned/"
+input_dir = "../../ontology_files/bp_v2.4/v1/*"
+output_dir = "../../ontology_files/bp_v2.4/"
 
 
 def clean_ontology(filepath, filename, fileformat, output_dir)
@@ -20,7 +20,7 @@ def clean_ontology(filepath, filename, fileformat, output_dir)
       if filename == "ONTOMA"
         regex_get_literal = line.scan(/<metadata:prefixIRI rdf:datatype="http:\/\/www.w3.org\/2001\/XMLSchema#string">(.*?)<\/metadata:prefixIRI>/)
       elsif fileformat == "owl"
-        regex_get_literal = line.scan(/<.* xml:lang="fr">(.*)<\/.*>/)
+        regex_get_literal = line.scan(/<.* xml:lang="fr">(.*?)<\/.*>/)
       elsif fileformat == "ttl"
         regex_get_literal = line.scan(/(?:skos:prefLabel|skos:altLabel) """(.*?)"""/)
       end
