@@ -41,8 +41,25 @@ def get_ncbo_ontologies_array
   return ontologies_array
 end
 
+def get_annotator_json
+  query = "http://vm-bioportal-vincent:8082/annotator/?text=Pseudotruncus+arteriosus&apikey=1cfae05f-9e67-486f-820b-b393dec5764b&include=prefLabel&expand_class_hierarchy=true&class_hierarchy_max_level=1&longest_only=false&recognizer=&exclude_numbers=false&whole_word_only=true&exclude_synonyms=false"
+  #query = "http://vm-bioportal-vincent:8080/annotator?text=Pseudotruncus+arteriosus&apikey=1cfae05f-9e67-486f-820b-b393dec5764b&include=prefLabel&expand_class_hierarchy=true&class_hierarchy_max_level=1&longest_only=false&recognizer=&exclude_numbers=false&whole_word_only=true&exclude_synonyms=false"
+  uri = URI.parse(query)
+  puts Net::HTTP.get(URI.parse(query))
 
-puts get_ncbo_ontologies_array
+  result = Net::HTTP.start(uri.host, uri.port) {|http|
+    http.get(uri.request_uri)
+  }
+
+  p result['content-type'] # "text/xml; charset=UTF-8" <- correct
+  #p result.content_type # "text/xml" <- incorrect; truncates the charset field
+  puts result.body.encoding # ASCII-8BIT <- incorrect encoding, should be UTF-8
+
+end
+
+get_annotator_json
+
+#puts get_ncbo_ontologies_array
 
 =begin
 ontology_array = ['BHN', 'CIF', 'CCAM', 'CIM-10', 'CISP-2', 'LPP', 'MEDLINEPLUS', 'NABM', 'SNMIFRE', 'WHO-ARTFRE']

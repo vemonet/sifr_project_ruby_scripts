@@ -117,7 +117,6 @@ class OntologyCleaner
       else
         result_literal = result_literal + ' ' + word
       end
-
     end
 
     @literal = result_literal.lstrip.capitalize
@@ -126,8 +125,8 @@ class OntologyCleaner
   def clean_abbreviation
     #Replace abbreviations for some ontologies
     replace_hash = {
-        'ICPCFRE' => {'syst' => 'système', 'chron' => 'chronique', 'probl' => 'problème', 'comport' => 'comportement', 'sympt' => 'symptome',
-                      'reperc' => 'répercussion', 'org' => 'organes', 'anomal' => 'anomalie', 'dig' => 'digestif'},
+        'ICPCFRE' => {'syst ' => 'système ', 'chron ' => 'chronique ', 'probl ' => 'problème ', 'comport ' => 'comportement ', 'sympt ' => 'symptome ',
+                      'reperc' => 'répercussion', 'org ' => 'organes ', 'anomal ' => 'anomalie ', 'dig ' => 'digestif ', 'articul ' => 'articulation '},
         'CCAM' => {'resp.' => 'respiratoire', 'exam.' => 'examen', 'prod.' => 'production', 'aig.' => 'aigue',
                    'insuf.' => 'insuffisance', 'ventil.' => 'ventilation'},
         'CIM-10' => {'<p>' => '', '<P>' => ''},
