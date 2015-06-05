@@ -36,7 +36,7 @@ class OntologyUploader
 
   def upload_submission(acronym, description, uploadPath)
     # Add a submission from a local file
-    #TODO: Ajouter contact, homepage...
+    #TODO: Ajouter contact, homepage... (créer contact via REST API)
 
     uri = URI.parse(@restUrl)
     http = Net::HTTP.new(uri.host, uri.port)

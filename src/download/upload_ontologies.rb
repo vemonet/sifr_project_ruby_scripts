@@ -87,10 +87,10 @@ ontologiesV1 = [
      :description => "MedlinePlus est un site tout public (professionnels, patients, usagers) de la National Library of Medicine (US) proposant de l'information de qualité et concernant la santé. ",
      :uploadPath => "#{ontologiesPath}/v1/MEDLINEPLUS.owl"},
 
-    {:acronym => "SNOMEDINT",
+    {:acronym => "SNOMED_int",
      :name => "Systematized Nomenclature of MEDicine",
      :description => "Systematized Nomenclature of MEDicine, version internationale",
-     :uploadPath => "#{ontologiesPath}/v1/SNOMEDINT.owl"},
+     :uploadPath => "#{ontologiesPath}/v1/SNOMED_INT.owl"},
 
     {:acronym => "WHO-ART",
      :name => "Adverse Reaction Terminology, version francaise",
@@ -155,10 +155,10 @@ ontologiesV2 = [
      :description => "MedlinePlus est un site tout public (professionnels, patients, usagers) de la National Library of Medicine (US) proposant de l'information de qualité et concernant la santé. ",
      :uploadPath => "#{ontologiesPath}/v2/MEDLINEPLUS.owl"},
 
-    {:acronym => "SNOMEDINT",
+    {:acronym => "SNOMED_INT",
      :name => "Systematized Nomenclature of MEDicine",
      :description => "Systematized Nomenclature of MEDicine, version internationale",
-     :uploadPath => "#{ontologiesPath}/v2/SNOMEDINT.owl"},
+     :uploadPath => "#{ontologiesPath}/v2/SNOMED_INT.owl"},
 
     {:acronym => "WHO-ART",
      :name => "Adverse Reaction Terminology, version francaise",
