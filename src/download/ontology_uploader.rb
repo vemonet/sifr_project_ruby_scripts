@@ -4,7 +4,7 @@ class OntologyUploader
   #attr_accessor :uploadPath, :format, :views
 
   def initialize(restUrl, apikey, user, contact, mail)
-    # TODO: parse url here
+    # TODO: parse url here?
     @user=user
     @apikey=apikey
     @restUrl=restUrl
@@ -35,7 +35,8 @@ class OntologyUploader
 
 
   def upload_submission(acronym, description, uploadPath)
-    # Add a submission from a local file  
+    # Add a submission from a local file
+    #TODO: Ajouter contact, homepage...
 
     uri = URI.parse(@restUrl)
     http = Net::HTTP.new(uri.host, uri.port)
@@ -55,12 +56,9 @@ class OntologyUploader
         "description": description,
         "status": "production",
         "naturalLanguage": "fr",
-        "filePath": uploadPath
+        "uploadFilePath": uploadPath
     }.to_json
 
-    #"pullLocation": "https://web.archive.org/web/20111213110713/http://www.movieontology.org/2010/01/movieontology.owl"
-
-    #response = http.request(req)
     response = http.start do |http|
       http.request(req)
     end
