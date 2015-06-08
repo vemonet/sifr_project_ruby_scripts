@@ -167,13 +167,43 @@ ontologiesV2 = [
 ]
 
 
+correctedOntologiesV2 = [
+    {:acronym => "CIF",
+     :name => "Classification Internationale du Fonctionnement, du handicap et de la santé",
+     :description => "La CIF, adoptée par l'Assemblée Mondiale de la Santé en 2001, remplace la Classification Internationale des Handicaps : déficiences, incapacités, désavantages. Cette classification traduit l'évolution internationale des représentations sociales du handicap au cours des trente dernières années. À l'approche traditionnelle du handicap comme caractéristique individuelle ont été opposées des approches sociales du handicap, souvent radicales, interrogeant la place faite aux personnes handicapées dans la société et la discrimination dont elles sont l'objet par défaut d'accessibilité environnementale et d'accès aux droits communs.",
+     :uploadPath => "#{ontologiesPath}/v2/CIF.owl"},
+
+    {:acronym => "CISP2",
+     :name => "Classification Internationale des Soins Primaires",
+     :description => "Classification Internationale des Soins Primaires, deuxième édition",
+     :uploadPath => "#{ontologiesPath}/v2/CISP2.owl"},
+
+
+    {:acronym => "MEDLINEPLUS",
+     :name => "MedlinePlus",
+     :description => "MedlinePlus est un site tout public (professionnels, patients, usagers) de la National Library of Medicine (US) proposant de l'information de qualité et concernant la santé. ",
+     :uploadPath => "#{ontologiesPath}/v2/MEDLINEPLUS.owl"},
+
+    {:acronym => "SNOMED_INT",
+     :name => "Systematized Nomenclature of MEDicine",
+     :description => "Systematized Nomenclature of MEDicine, version internationale",
+     :uploadPath => "#{ontologiesPath}/v2/SNOMED_INT.owl"},
+
+    {:acronym => "WHO-ART",
+     :name => "Adverse Reaction Terminology, version francaise",
+     :description => "WHO-ART est une terminologie utilisée pour le codage et l'analyse des données de pharmacovigilance, développée par Uppsala Monitoring Centre, employée aussi bien par les pays membres de l'OMS que dans le monde entier par les compagnies pharmaceutiques et organismes de recherche clinique. Le système terminologique WHO-ART s'applique à coder les effets indésirables des médicaments et elle couvre la plupart des termes médicaux nécessaires dans ce domaine.",
+     :uploadPath => "#{ontologiesPath}/v2/WHO-ART.owl"}
+
+]
+
+
 
 ontologyUploader = OntologyUploader.new(restUrl, apikey, user, contact, mail)
 
 
-ontologiesV1.each do |onto|
+correctedOntologiesV2.each do |onto|
   puts onto[:acronym]
-  puts ontologyUploader.create_ontology(onto[:acronym], onto[:name])
+  #puts ontologyUploader.create_ontology(onto[:acronym], onto[:name])
   puts ontologyUploader.upload_submission(onto[:acronym], onto[:description], onto[:uploadPath])
 end
 

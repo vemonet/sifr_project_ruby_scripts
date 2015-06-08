@@ -3,7 +3,7 @@
 require_relative 'ontology_cleaner.rb'
 
 input_dir = "../../ontology_files/bp_v2.4/v1/*"
-output_dir = "../../ontology_files/bp_v2.4/"
+output_dir = "../../ontology_files/bp_v2.4/v2/"
 
 
 def clean_ontology(filepath, filename, fileformat, output_dir)
@@ -15,6 +15,9 @@ def clean_ontology(filepath, filename, fileformat, output_dir)
   File.open("#{output_dir}#{filename}.#{fileformat}", "wb") do |outputFile|
     #Go through the ontology file line by line
     ontology_file.each_line do |line|
+
+      #Remove xml:lang="n/a" from CIF, CISP2, SNOMED_int, WHO-ART and MEDLINEPLUS: it cause a bug when uploading to bioportal
+      line = line.gsub('xml:lang="n/a"', 'xml:lang="fr"')
 
       #extract label to process from the line
       if filename == "ONTOMA"
