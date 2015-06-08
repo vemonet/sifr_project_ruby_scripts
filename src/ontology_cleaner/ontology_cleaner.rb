@@ -149,6 +149,7 @@ class OntologyCleaner
 
   def clean_snomed
     @literal = @literal.gsub(/>([0-9a-zA-Z]*?)</,'\1')
+    @literal = @literal.gsub("<", "&lt;")
   end
 
 
