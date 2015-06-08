@@ -94,7 +94,7 @@ class OntologyCleaner
 
   private
   def clean_cismef
-    @literal = @literal.gsub('___', ' : ').gsub('_', ' ').gsub('&apos;', "'").gsub('&quot;', '"').gsub('&gt;', '>').gsub('&lt;', '<')
+    @literal = @literal.gsub('___', ' : ').gsub('_', ' ').gsub('&apos;', "'").gsub('&quot;', '"').gsub('&gt;', '>')
   end
 
   def clean_underscore
