@@ -66,6 +66,7 @@ class OntologyCleaner
         clean_accents
       when 'SNOMED_int'
         clean_cismef
+        clean_snomed
       when 'WHO-ART'
         clean_cismef
         clean_abbreviation
@@ -144,6 +145,10 @@ class OntologyCleaner
 
   def clean_ccam
     @literal = @literal.sub(/ [A-Z]{2}$/, '')
+  end
+
+  def clean_snomed
+    @literal = @literal.gsub(/>([0-9a-zA-Z]*?)</,'\1')
   end
 
 
