@@ -3,13 +3,11 @@ class OntologyUploader
   attr_reader :restUrl, :apikey, :user, :contact, :mail
   #attr_accessor :uploadPath, :format, :views
 
-  def initialize(restUrl, apikey, user, contact, mail)
+  def initialize(restUrl, apikey, user)
     # TODO: parse url here?
     @user=user
     @apikey=apikey
     @restUrl=restUrl
-    @contact = contact
-    @mail=mail
   end
 
   def create_ontology(acronym, name)
@@ -34,7 +32,7 @@ class OntologyUploader
   end
 
 
-  def upload_submission(acronym, description, uploadPath)
+  def upload_submission(acronym, description, uploadPath, homepage, documentation, publication, released, contact, mail)
     # Add a submission from a local file
     #TODO: Ajouter contact, homepage... (créer contact via REST API)
 
@@ -49,12 +47,15 @@ class OntologyUploader
     # hasOntologyLanguage: OWL, UMLS, SKOS, OBO
     # status: alpha, beta, production, retired
     req.body = {
-        "contact": [{"name": @contact,"email": @mail}],
+        "contact": [{"name": contact,"email": mail}],
         "ontology": "#{@restUrl}/ontologies/#{acronym}",
         "hasOntologyLanguage": "OWL",
-        "released": "2013-01-01T16:40:48-08:00",
+        "released": released,
         "description": description,
         "status": "production",
+        "homepage": homepage,
+        "documentation": documentation,
+        "publication": publication,
         "naturalLanguage": "fr",
         "uploadFilePath": uploadPath
     }.to_json
