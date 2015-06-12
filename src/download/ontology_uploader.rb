@@ -21,7 +21,13 @@ class OntologyUploader
     req['Content-Type'] = "application/json"
     req['Authorization'] = "apikey token=#{@apikey}"
 
-    req.body = { "acronym": acronym, "name": name, "administeredBy": [@user]}.to_json
+
+    if (acronym == "CISP2")
+      # Special treatment for CISP2 that is a private ontology
+      req.body = { "acronym": acronym, "name": name, "administeredBy": [@user], "viewingRestriction": "private", "acl": ["admin"]}.to_json
+    else
+      req.body = { "acronym": acronym, "name": name, "administeredBy": [@user]}.to_json
+    end
 
     response = http.start do |http|
       http.request(req)

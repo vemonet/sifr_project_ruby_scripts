@@ -13,7 +13,6 @@ restUrl = "http://vm-bioportal-vincent:8080"
 apikey = vm_apikey
 user = "admin"
 
-
 # The folder where the ontologies are:
 ontologiesPath = "/srv/data/ontologies"
 
@@ -22,7 +21,7 @@ ontologiesPath = "/srv/data/ontologies"
 
 # Array for the version 2 ontologies (corrected)
 
-
+#TODO: use a JSON file to generate those hash?
 
 ontologiesV1 = [
     {:acronym => "BHN",
@@ -48,7 +47,7 @@ ontologiesV1 = [
 
     {:acronym => "HRDO",
      :name => "Disease core ontology applied to Rare Diseases",
-     :description => "This resource was designed during a PhD in medical informatics (funded by INSERM, 2010-2012). Its components are (i) a core ontology consistent with a metamodel (disorders and groups of disorders, genes, clinical signs and their relations) and (ii) an instantiation of this metamodel with Orphanet Data (available on http://orphadata.org). </ br> Research experiments demonstrated (i) efficient classifications generation based on SPARQL Construct, (ii) perspectives in semantic audit of a knowledge base, (iii) semantic comparison with OMIM (www.omim.org) using proximity measurements and (iv) opened perspectives in knowledge sharing (LORD, http://lord.bndmr.fr). Current production services of Orphanet developed ORDO, released in 2014, an ontology synchronized with their production database. This ontology is now available on Bioportal.",
+     :description => "This resource was designed during a PhD in medical informatics (funded by INSERM, 2010-2012). Its components are (i) a core ontology consistent with a metamodel (disorders and groups of disorders, genes, clinical signs and their relations) and (ii) an instantiation of this metamodel with Orphanet Data (available on http://orphadata.org). Research experiments demonstrated (i) efficient classifications generation based on SPARQL Construct, (ii) perspectives in semantic audit of a knowledge base, (iii) semantic comparison with OMIM (www.omim.org) using proximity measurements and (iv) opened perspectives in knowledge sharing (LORD, http://lord.bndmr.fr). Current production services of Orphanet developed ORDO, released in 2014, an ontology synchronized with their production database. This ontology is now available on Bioportal.",
      :uploadPath => "#{ontologiesPath}/v1/HRDO.owl",
      :homepage => "http://xavier-aime.com/ontology/projets-de-recherche/projet-ontoorpha/",
      :documentation => "",
@@ -84,7 +83,18 @@ ontologiesV1 = [
      :documentation => "http://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/WHO/",
      :publication => "",
      :contact => "Vincent Emonet",
-     :mail => "vincent.emonet@lirmm.fr"}
+     :mail => "vincent.emonet@lirmm.fr"},
+
+    {:acronym => "CISP2",
+     :name => "Classification Internationale des Soins Primaires, deuxième édition",
+     :description => "La CISP-2 permet de classer et coder trois éléments de la consultation de médecine générale, ou plus généralement de soins primaires. Il s'agit des motifs de rencontre (du point de vue du patient), les appréciations portées par le professionnel de la santé (problèmes de santé diagnostiqués) et les procédures de soins (réalisées ou programmées). Le rapprochement de ces éléments permet de reconstituer des épisodes de soins, ce qui rend la CISP pleinement compatible avec l'orientation par problèmes du dossier médical.",
+     :uploadPath => "#{ontologiesPath}/v1/CISP2.owl",
+     :homepage => "http://www.who.int/classifications/icd/adaptations/icpc2/en/",
+     :documentation => "http://www.ulb.ac.be/esp/wicc/cisp2.html",
+     :publication => "http://wwwold.chu-montpellier.fr/publication/inter_pub/R300/rubrique.jsp",
+     :contact => "Vincent Emonet",
+     :mail => "vincent.emonet@lirmm.fr"
+    }
 ]
 
 ontologiesV2 = [
@@ -148,6 +158,17 @@ ontologiesV2 = [
      :contact => "Vincent Emonet",
      :mail => "vincent.emonet@lirmm.fr"},
 
+    {:acronym => "CISP2",
+     :name => "Classification Internationale des Soins Primaires, deuxième édition",
+     :description => "La CISP-2 permet de classer et coder trois éléments de la consultation de médecine générale, ou plus généralement de soins primaires. Il s'agit des motifs de rencontre (du point de vue du patient), les appréciations portées par le professionnel de la santé (problèmes de santé diagnostiqués) et les procédures de soins (réalisées ou programmées). Le rapprochement de ces éléments permet de reconstituer des épisodes de soins, ce qui rend la CISP pleinement compatible avec l'orientation par problèmes du dossier médical.",
+     :uploadPath => "#{ontologiesPath}/v2/CISP2.owl",
+     :homepage => "http://www.who.int/classifications/icd/adaptations/icpc2/en/",
+     :documentation => "http://www.ulb.ac.be/esp/wicc/cisp2.html",
+     :publication => "http://wwwold.chu-montpellier.fr/publication/inter_pub/R300/rubrique.jsp",
+     :contact => "Vincent Emonet",
+     :mail => "vincent.emonet@lirmm.fr"
+    },
+
     {:acronym => "MSHFRE",
      :name => "Medical Subject Headings, version francaise",
      :description => "Le MeSH (Medical Subject Headings), thésaurus biomédical de référence, est un outil d'indexation, de catalogage et d'interrogation des bases de données de la NLM (National Library of Medicine, Bethesda, USA), notamment MEDLINE/PubMed. L'Inserm, partenaire français de la NLM depuis 1969, traduit le MeSH à l'intention des utilisateurs francophones en 1986, le met à jour chaque année et présente la version bilingue sur ce site. Depuis 2004, la mise à jour est réalisée en collaboration avec l'Inist-CNRS (Institut de l'information scientifique et technique du CNRS).",
@@ -167,6 +188,17 @@ ontologiesV2 = [
      :publication => "",
      :contact => "Jim Mundell",
      :mail => "mssohelp@ngc.com"},
+
+    {:acronym => "STY",
+     :name => "Réseau sémantique UMLS",
+     :description => "",
+     :uploadPath => "#{ontologiesPath}/v2/umls_semantictypes_2014ab_french.ttl",
+     :homepage => "http://www.nlm.nih.gov/pubs/factsheets/umlssemn.html",
+     :documentation => "",
+     :publication => "Ontologie des types sémantiques",
+     :contact => "Vincent Emonet",
+     :mail => "vincent.emonet@lirmm.fr"
+    }
 ]
 
 
@@ -183,6 +215,7 @@ ontologiesV1.each do |onto|
   puts ontologyUploader.create_ontology(onto[:acronym], onto[:name])
   puts ontologyUploader.upload_submission(onto[:acronym], onto[:description], onto[:uploadPath], onto[:homepage], onto[:documentation], onto[:publication], releaseDate,onto[:contact],onto[:mail])
 end
+
 
 
 ontologiesV2.each do |onto|
