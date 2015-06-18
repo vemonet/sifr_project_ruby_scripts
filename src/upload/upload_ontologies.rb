@@ -11,10 +11,11 @@ require_relative 'ontology_uploader.rb'
 
 restUrl = "http://vm-bioportal-vincent:8080"
 #restUrl = "http://data.stageportal.lirmm.fr"
+#restUrl = "http://data.bioportal.lirmm.fr"
 apikey = vm_apikey
 user = "admin"
 
-ontoJson = "../../ontology_files/upload_list_files/ontologies_v1_0.json"
+ontoJson = "../../ontology_files/upload_list_files/ontologies_v1_1.json"
 
 # The folder where the ontologies are:
 ontologiesPath = "/srv/data/ontologies"
