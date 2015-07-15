@@ -1,4 +1,4 @@
-
+#!/usr/bin/ruby
 require 'rdf'
 #require 'rdf-rdfxml'
 require 'C:\Ruby21-x64\lib\ruby\gems\2.1.0\gems\rdf-rdfxml-1.1.4\lib\rdf\rdfxml.rb'
