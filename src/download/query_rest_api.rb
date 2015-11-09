@@ -30,7 +30,7 @@ def patch_ontology_admin(restURL, ontoAcronym)
 end
 
 def get_ncbo_ontologies_array
-  ontologies_json = JSON.parse(Net::HTTP.get(URI.parse('http://data.bioontology.org/ontologies?apikey=24e03810-54e0-11e0-9d7b-005056aa3316')))
+  ontologies_json = JSON.parse(Net::HTTP.get(URI.parse('http://data.bioontology.org/ontologies?apikey=')))
   puts ontologies_json.class
 
   ontologies_array = []
@@ -42,8 +42,8 @@ def get_ncbo_ontologies_array
 end
 
 def get_annotator_json
-  query = "http://vm-bioportal-vincent:8082/annotator/?text=Pseudotruncus+arteriosus&apikey=1cfae05f-9e67-486f-820b-b393dec5764b&include=prefLabel&expand_class_hierarchy=true&class_hierarchy_max_level=1&longest_only=false&recognizer=&exclude_numbers=false&whole_word_only=true&exclude_synonyms=false"
-  #query = "http://vm-bioportal-vincent:8080/annotator?text=Pseudotruncus+arteriosus&apikey=1cfae05f-9e67-486f-820b-b393dec5764b&include=prefLabel&expand_class_hierarchy=true&class_hierarchy_max_level=1&longest_only=false&recognizer=&exclude_numbers=false&whole_word_only=true&exclude_synonyms=false"
+  query = "http://vm-bioportal-vincent:8082/annotator/?text=Pseudotruncus+arteriosus&apikey=&include=prefLabel&expand_class_hierarchy=true&class_hierarchy_max_level=1&longest_only=false&recognizer=&exclude_numbers=false&whole_word_only=true&exclude_synonyms=false"
+  #query = "http://vm-bioportal-vincent:8080/annotator?text=Pseudotruncus+arteriosus&apikey=&include=prefLabel&expand_class_hierarchy=true&class_hierarchy_max_level=1&longest_only=false&recognizer=&exclude_numbers=false&whole_word_only=true&exclude_synonyms=false"
   uri = URI.parse(query)
   puts Net::HTTP.get(URI.parse(query))
 
