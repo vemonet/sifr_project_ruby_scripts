@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 
 # A script to auto import ontologies from a BioPortal appliance to another
+# It will import the metadata too
 # Fill the following variables with
 
 # URL of the API and APIKEY of the BioPortal we want to import data FROM
