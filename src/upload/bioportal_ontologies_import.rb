@@ -16,7 +16,7 @@ TARGET_APIKEY = ""
 TARGETED_PORTAL_USER = "admin"
 
 # The list of acronyms of ontologies to import
-ONTO_TO_IMPORT = ["STY"]
+ONTOLOGIES_TO_IMPORT = ["STY"]
 
 
 
@@ -100,7 +100,7 @@ end
 
 
 # Go through all ontologies acronym and get their latest_submission informations
-ONTO_TO_IMPORT.each do |ont|
+ONTOLOGIES_TO_IMPORT.each do |ont|
   sub_info = JSON.parse(Net::HTTP.get(URI.parse("#{SOURCE_API}/ontologies/#{ont}/latest_submission?apikey=#{SOURCE_APIKEY}&display=all")))
 
   # if the ontology is already created then it will return HTTPConflict, no consequences
