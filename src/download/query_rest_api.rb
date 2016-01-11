@@ -57,15 +57,39 @@ def get_annotator_json
 
 end
 
-get_annotator_json
+def define_ontology_types
+  portal_api_url = "http://data.stageportal.lirmm.fr"
 
-#puts get_ncbo_ontologies_array
+  # Get list of ontologies in the portal
+  json_ontologies = JSON.parse(Net::HTTP.get(URI.parse("#{portal_api_url}/ontologies?apikey=#{vm_apikey}")), {:symbolize_names => true})
+  # JSON keys have been symbolized
 
-=begin
-ontology_array = ['BHN', 'CIF', 'CCAM', 'CIM-10', 'CISP-2', 'LPP', 'MEDLINEPLUS', 'NABM', 'SNMIFRE', 'WHO-ARTFRE']
+  uri = URI.parse(portal_api_url)
+  http = Net::HTTP.new(uri.host, uri.port)
 
-ontology_array.each do |onto|
-  puts onto
-  puts patch_ontology_admin("http://bioportal.lirmm.fr:8082", onto)
+  # iterate over the ontology list
+  json_ontologies.each do |onto|
+    # add ontologyType if there is not already one
+    if onto[:ontologyType].nil?
+      req = Net::HTTP::Patch.new("/ontologies/#{onto[:acronym].to_s}")
+      req['Content-Type'] = "application/json"
+      req['Authorization'] = "apikey token=#{vm_apikey}"
+      req.body = {:ontologyType => "ONTOLOGY"}.to_json
+
+      response = http.start do |http|
+        http.request(req)
+      end
+
+      puts "Defining ontologyType for: #{onto[:acronym].to_s}"
+      puts "Response status : #{response.code} #{response.body}"
+      puts " "
+
+    else
+      puts "#{onto[:acronym].to_s} : ontologyType already defined"
+      puts " "
+    end
+    sleep 0.5
+  end
 end
-=end
+
+
